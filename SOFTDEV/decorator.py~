@@ -1,0 +1,28 @@
+from functools import wraps
+
+##DYNAMIC PROGRAMMING:
+#Using memory, which is cheap, we can rewrite recursive fxns for father
+
+
+#MEMOIZATION: like writing down a memo to quickly calculate things
+#A nicer way to compute fib numbers using dynamic programming (yet, not entirely since recursive calls)
+def memoize(f):
+    t = {}
+    @wraps(f)
+    def inner(*args):
+        if args in t:
+                return t[args]
+        else:
+                t[args] = f(*args)
+                return t[args]
+    return inner
+
+@memoize
+def fib2(x,t={}):
+    if x in t:
+        return t[x]
+    elif x < 2:
+        return 1
+    else:
+        t[x] = fib2(x-1,t) + fib2(x-2,t)
+        return t[x]
