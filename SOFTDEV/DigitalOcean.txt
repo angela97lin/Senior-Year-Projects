@@ -1,0 +1,55 @@
+DIGITAL OCEAN SETUP INSTRUCTIONS:
+
+Set up SSH key to easily log into your box's route!
+    https://cloud.digitalocean.com/ssh_keys
+
+Create a Droplet:
+       Choose name
+       Select Region: New York (3)
+       Choose Distributions
+       You can also choose applications (Application Image)	
+       Add SSH keys!
+       Create the droplet!
+
+Options:
+	Power Cycle: Hard resetting of the server
+	Power off
+	Console Access: a login terminal in case you can't get to your box otherwise
+	Resize Droplet (when it is turned off)
+	Take a snapshot of your droplet (state)
+
+You can only ssh via IP address:
+    ssh root@IPADDRESS
+    ifconfig to find IP address
+Unless you give the box an actual name:
+    Sign up for a subdomain here:
+    freedns.afraid.org (free subdomain registeration)
+
+FIRST THING YOU WANT TO DO: ADD ANOTHER USER (so you do not have to rely on root)
+      adduser username
+      addgroup username sudo : allows username to do things as a superuser using sudo
+      logout as root and login as user
+      ssh-copy-id username@IPADDRESS : so you do not have to always type in password
+
+Now to update the box...
+    sudo su --> run switch user as superuser and then run things as root
+OR...
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get install PACKACGE (git, emacs, python-dev, python-virtualenv, python-pip, sqlite3, mongodb, mongodb-clients)
+
+Then... 
+Generate a public ssh key for GITHUB
+
+Then... 
+Install Flask!
+	sudo pip install flask gunicorn
+
+Sharing files on the virtual box:
+	scp filename MACHINENAME: (colon in terminal means machine name)
+	OR
+	sshfs username@machinename:shared x
+	Lets you mount directories across machines.
+	fusermount to unmount
+
+sudo apt-get nginx

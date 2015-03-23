@@ -1,0 +1,136 @@
+MODEL VIEW CONTROL
+ex: flask, Ruby on Rails
+
+
+MODEL: Data (ex: db.py)
+VIEW: Templates/routes
+CONTROLLER: Everything that ties the model and view together
+=============================================
+
+BACKBONE:
+Model: Backbone.Model is a class; your Model should extend/inherit the built-in one
+Using underscore...
+_.extend(myplace, Backbone.Model)
+
+or...
+var Place = Backbone.Model.extend(); //creates a new type called Place that is basically a clone of Backbone.Model
+p = new Place() 
+
+--> you store everything inside the atrributes value of the class, not actually in the class
+
+ex: 
+p.set('name', "Terry's")
+p.attributes
+p.get('ratings')
+p.attributes --> will not give you everything else Backbone provides, so better to use set and get
+
+
+
+var Place = Backbone.Model.extend({include things you want to include or override here in a dictionary});
+
+p.set('rating', "HELLO", {validate: true}) --> returns false if not valid data
+
+
+Every time you make a new model --> make sure you disconnect/turn off your events, or else, gatbage collector will NOT collect your old model!
+
+
+var PlaceView = Backbone.View.extend({
+    render: function(){
+	    el: "#place", //el --> element we will go into; remember script goes below because of top-bottom loading
+	    template: _.template($("#place_template").html()),
+	    initialize: function(){
+	    		this.render();
+	    },	    
+	    events: {
+	    	    "click button#del" {
+		    	   console.log(e);
+			   this.remove();
+			}		
+		},	
+	    render: function(){
+	    	    var e = this.template(this.model.toJSON());
+    	    	    //this.$el.append("<p>hello</p>"); //el --> jQuery wrapper
+		    return this; //Backbone convention	
+	     }			
+
+});
+
+v1 = new PlaceView({model: p1});
+
+//template for underscore: _.template... <%stuff%>
+
+
+PUTTING TEMPLATE IN HTML:
+<script type="text/templates" id="place_template"></script> 
+$("#place_template")
+
+
+"THIS" IN JAVASCRIPT:
+       In Java, refers to object in code
+       In Javascript, refer to whatever object bound to at execution
+       (AKA do something in the future in that context)
+       (Where I am when I am rendered)
+       --> Capture the context!
+
+       var that = this; //captures context
+       this.model.on("change", function(){
+       			 that.render();	
+			 });
+
+
+tagName: wraps everything in a tag
+
+Router
+
+Convention: use uppercase for extending, lowercase for specifics
+Collections: Array of Backbone models (with all events and underscore stuff)
+
+var Places = Backbone.Collection.extend({
+
+    model: Place, //type of model we are using; must be lowercase 'm'
+    initialize : function(){
+    	       this.on("add", function(){
+	       		      console.log("added a place")
+			      }
+		),
+
+});
+
+var CView = Backbone.View.extend({
+    el: "#places",
+    render: function(){
+    	    this.$el.empty();
+	    this.collection.each(function(item){ //each: underscore fxn
+		console.log(item);
+		var v = new PView({model:item});
+		var h = v.render(); //view returns itself
+		this.$el.appned(h.$el);
+		}, this);//sets this to binding context (bind method); in this case, it is the collection... same thing as var that = this; before render
+            return this;
+   }
+
+});
+var c = new Places();
+c.add(p1);
+c.add(p2);
+OR
+c.add([p1, p2]); //automatically loops and adds both
+
+
+var cv = new CView({collection:c});
+cv.render();
+c.comparator ="rating"
+c.sort();
+cv.render();
+
+------------------------------------------------------------------------
+
+LINUX-Y COMMANDS :)
+
+cat e1 e2 |  sort | tr A-Z a-z | uniq -c | egrep "+1" | cut -d" " -f8
+
+------------------------------------------------------------------------
+
+Backbone Persistency
+
+Backbone fetch() --> goes to server
