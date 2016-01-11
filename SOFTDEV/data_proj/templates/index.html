@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block active_home %}
+class="uk-active"
+{% endblock active_home %}
+
+{% block main %}
+    <div class="uk-grid">
+      <div class="uk-width-medium-1-3 uk-container-center uk-text-center">
+        <div class="uk-panel">
+          <div style="margin-top: 50%" class="uk-panel-box">
+            <form method="POST" class="uk-form uk-form-stacked">
+      			<div class="uk-form-row"><input type="text" name="search" placeholder="Search"></div>
+    			<div class="uk-form-row">
+            <button class="uk-button" type="submit" name="s" value="search"> Search </button>
+    				<button class="uk-button" type="submit" name="s" value="lucky"> I'm Feeling Lucky </button>
+    			</div>
+    		</form>
+        <br>
+        {{result}}
+        <ul class="uk-list uk-list-line">
+        {% for element in link_list %}
+          <li><a class="uk-button-link" href= {{element}} > {{element}} </a></li>
+        {% endfor %}
+        </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock main %}
