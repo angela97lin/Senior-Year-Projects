@@ -1,0 +1,21 @@
+<template name="edit-post-form">
+  <div class="angela row">
+    <div class="input-field col s6">
+      <input id="edit_post_name" type="text" value={{post_info.postName}} name="updatePostName" class="validate">
+      <label class="active" for="edit_post_name">New Post Name</label>
+    </div>
+  </div>
+  <div class="angela row">
+    <div class="input-field col s12">
+      <input id="edit_post_desc" type="text" value={{post_info.postDesc}} name="updatePostDesc" class="validate">
+      <label class="active" for="edit_post_desc">New Post Description</label>
+    </div>
+  </div>
+  <div class="angela row">
+    <div class="input-field col s12">
+      <input id="edit_post_img" type="text" value={{post_info.postImg}} name="updatePostImg" class="validate">
+      <label class="active" for="edit_post_img">New Post Image</label>
+    </div>
+  </div>
+
+</template>

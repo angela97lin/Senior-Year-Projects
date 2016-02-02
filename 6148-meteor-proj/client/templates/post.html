@@ -1,0 +1,39 @@
+<template name="post">
+
+{{#if Template.subscriptionsReady}}
+  <div class="card" style="display: inline">
+      <div class="blurring dimmable image">
+          <img src="{{this.postImg}}" onerror="this.src='http://www.martyranodes.com/sites/default/files/images/kits/no_0.jpg'">
+        <div class="ui dimmer">
+          <div class="content">
+            <div class="center">
+              <div class="ui inverted button modbut">
+                <center>
+                  Edit
+                </center>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="content">
+        {{this.postName}}
+        <div class="meta">
+          <span class="date">{{this.postDesc}}</span><br>
+        </div>
+      </div>
+      <div class="extra content">
+        <div class="angela oops">
+          <a class="deletelink"><i class="trash outline icon"></i></a>
+        </div>
+      </div>
+  </div>
+
+{{else}}
+  Loading...
+  {{> spinner}}
+{{/if}}
+
+</template>

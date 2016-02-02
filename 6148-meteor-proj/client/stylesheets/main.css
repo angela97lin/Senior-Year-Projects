@@ -1,0 +1,205 @@
+/* CSS declarations go here */
+/* look through and style sign-in via link button and whatnot.*/
+
+.ui.inverted.menu {
+  background-color: #556a68;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-radius: 0px;
+}
+
+.projectName{
+  font-size: 28px;
+  padding-top: 10px;
+  word-wrap: break-word;
+}
+
+h1 {
+  font-size: 30px;
+  padding-top: 10px;
+}
+
+.projectDescription {
+  padding-top: 10px;
+  color: grey;
+  word-wrap: break-word;
+}
+
+.newProj {
+  color: #51545b;
+  background-color: white;
+  margin-left: 90px;
+  margin-right: 90px;
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-bottom: 1px;
+}
+
+.folderName{
+  font-size:28px;
+  padding-top: 10px;
+  word-wrap: break-word;
+}
+
+.folderDescription {
+  padding-top: 10px;
+  word-wrap: break-word;
+}
+
+.newFold{
+  background-color: white;
+  color: #51545b;
+  padding-top: 30px;
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-bottom: 1px;
+  margin-left: 90px;
+  margin-right: 90px;
+}
+
+.ui.internally.celled.grid {
+  margin-top: 10px;
+  padding-left: 90px;
+  padding-right: 90px;
+  word-wrap: break-word;
+}
+
+.pushDisButton {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
+
+.ui.dividing.header {
+  margin-left: 240px;
+  text-shadow: 2px 2px #E9E9E9;
+}
+
+.cardz {
+  margin-left: 230px;
+  padding-left: 10px;
+  background-color: #E9E9E9;
+  word-wrap: break-word;
+}
+
+
+.ui.vertical.menu {
+  position: fixed;
+  margin-top: 0px;
+  border: none;
+  box-shadow: none;
+  z-index: 1;
+}
+
+.ui.inverted.submit.button {
+  background-color: #556a68;
+}
+
+.aboutheader {
+  color: white;
+  text-align: center;
+  font-family: 'Hoefler Text', 'Baskerville Old Face', Garamond, 'Times New Roman', serif;
+  font-size: 45px;
+  padding-top: 80px;
+}
+
+.aboutp {
+  text-align: center;
+  font-family: 'Hoefler Text', 'Baskerville Old Face', Garamond, 'Times New Roman', serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 15px;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 55px;
+  padding-bottom: 55px;
+  background: rgba(195,196,207, 0.5);
+  margin-left: 180px;
+  margin-right: 180px;
+}
+
+.aboutback {
+  background-image: url("https://pixabay.com/static/uploads/photo/2015/06/08/15/17/railroad-tracks-801986_960_720.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 345px;
+  padding-top: 0px;
+  opacity:0.9;
+  margin-top: 0px;
+}
+
+a {
+  color: #caa6df;
+}
+
+a.dammit {
+  color: #324c42;
+}
+
+a.goddammit {
+  color: grey;
+}
+
+
+.home {
+  background-image: url("http://i1298.photobucket.com/albums/ag42/xmusicdreamx/mainpage_zpsj8hlq5dl.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 645px;
+}
+
+.hometitle {
+  font-family: 'Hoefler Text', 'Baskerville Old Face', Garamond, 'Times New Roman', serif;
+  text-align: center;
+}
+
+body {
+  background-color: white;
+  background: rgba(212, 217, 216, 0.8);
+}
+
+.row {
+  background-color: white;
+  border: none;
+}
+
+.main.container {
+  padding-top: 10px;
+  margin-left: 0px;
+}
+
+#thepoopmenu {
+  width: 250px;
+}
+
+.butthole {
+  height: 50% !important;
+}
+
+textarea {
+  width: 116% !important;
+}
+.poopoo {
+  padding-bottom: 5px;
+  margin-right: -73px;
+}
+
+.asshole {
+  width: 75% !important;
+}
+
+.uglyForm {
+  line-height: 10px;
+}
+
+.angela.oops {
+  position: absolute
+  bottom: 10px;
+}
+
+.folderpic {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+}

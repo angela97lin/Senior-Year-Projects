@@ -1,0 +1,68 @@
+<template name="project">
+
+{{#if Template.subscriptionsReady}}
+<!-- This is displayed when all data is ready. -->
+
+<div class="newFold">
+  <h1>
+    <div class="projectName">
+      {{this.projName}}
+    </div>
+  </h1>
+  <form class="new-folder">
+    <div class="ui form">
+      <div class="inline fields">
+        <div class="three wide field">
+          <input class="butthole" type="text" placeholder="Folder Name" name="foldername">
+        </div>
+        <div class="five wide field">
+          <input class="butthole" type="text" placeholder="Folder Description" name="folderdes">
+        </div>
+        <div class="three wide field">
+          <button class="ui inverted submit new-folder button">Create New Folder</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="ui internally celled grid">
+{{#each folders}}
+<!--can add templating to be fancy for all projects here-->
+
+  <div class="row">
+    <div class="two wide column">
+      <img class="folderpic" src="http://icons.iconarchive.com/icons/danrabbit/elementary/64/Folder-grey-icon.png">
+    </div>
+
+    <div class="twelve wide column">
+      <div class="eachFolder">
+        <div class="folderName">
+          <a class="dammit" href="{{pathFor route='folderPage' _project=projectId}}">{{this.folderName}}</a>
+        </div>
+        <div class="folderDescription">
+            {{this.folderDesc}}
+        </div>
+      </div>
+    </div>
+    <div class="two wide column">
+      <div class="pushDisButton">
+        <button class="ui mini button editfolder" id={{this._id}}>Edit Folder</button>
+        <a class="deletelink"><i class="trash outline icon"></i></a>
+      </div>
+    </div>
+  </div>
+
+
+<!--<div class="ui horizontal divider">
+  Or
+</div> !>
+-->
+  {{/each}}
+</div>
+{{else}}
+  Loading...oops.
+  {{> spinner}}
+{{/if}}
+
+</template>
